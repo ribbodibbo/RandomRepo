@@ -43,7 +43,7 @@ public class CardManager : MonoBehaviour
             totalCards = cards.Count;
             if (totalCards % 2 != 0)
             {
-                Debug.LogError("[CardManager] Found odd number of cards, cannot assign pairs.");
+                //Debug.LogError("[CardManager] Found odd number of cards, cannot assign pairs.");
                 return;
             }
             pairsCount = totalCards / 2;
@@ -72,7 +72,7 @@ public class CardManager : MonoBehaviour
                 Debug.Log($"[CardManager] Assigned Card[{i}] => pairId={pairId}, sprite={spriteForPair.name}");
         }
 
-        Debug.Log($"[CardManager] InitializePairs(): Done. pairs={pairsCount}, cards={totalCards}");
+        //Debug.Log($"[CardManager] InitializePairs(): Done. pairs={pairsCount}, cards={totalCards}");
     }
 
     private void Shuffle<T>(List<T> list)
