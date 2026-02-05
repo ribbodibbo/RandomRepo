@@ -142,12 +142,12 @@ public class GridManager : MonoBehaviour
     {
         CurrentCardCount = 16;
 
-        container.sizeDelta = new Vector2(1050, 1000);
+        container.sizeDelta = new Vector2(1050, 900);
 
         grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         grid.constraintCount = 4;
 
-        grid.cellSize = new Vector2(200, 200);
+        grid.cellSize = new Vector2(200, 175);
         grid.spacing = new Vector2(50, 30);
         grid.padding = new RectOffset(50, 40, 50, 50);
 

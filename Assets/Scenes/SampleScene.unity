@@ -3503,7 +3503,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 197, y: 0}
-  m_SizeDelta: {x: 1050, y: 700}
+  m_SizeDelta: {x: 1050, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1152164980
 CanvasRenderer:
@@ -3526,17 +3526,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 40
+    m_Left: 50
     m_Right: 40
-    m_Top: 40
+    m_Top: 50
     m_Bottom: 50
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 300, y: 300}
-  m_Spacing: {x: 35, y: 20}
+  m_CellSize: {x: 200, y: 175}
+  m_Spacing: {x: 50, y: 30}
   m_Constraint: 1
-  m_ConstraintCount: 3
+  m_ConstraintCount: 4
 --- !u!114 &1152164982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3579,7 +3579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b35f51d7cd24643afd827eac12ee99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
+  mode: 2
   container: {fileID: 1152164978}
   grid: {fileID: 1152164981}
   cardManager: {fileID: 1384421888}
@@ -3885,7 +3885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1353225064
 RectTransform:
   m_ObjectHideFlags: 0
