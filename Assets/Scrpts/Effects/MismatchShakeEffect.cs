@@ -1,10 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-/// <summary>
-/// Centralized mismatch feedback:
-/// Quick shake/vibrate effect for wrong card match.
-/// </summary>
+
 public class MismatchShakeEffect : MonoBehaviour
 {
 

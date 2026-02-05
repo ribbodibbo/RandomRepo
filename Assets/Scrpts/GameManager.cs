@@ -195,10 +195,7 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.PlayWin();
         GamWon.Invoke();
-        //Debug.Log("🎉 [GameManager] YOU WIN!");
-        // later:
-        // score update
-        // save progress
-        // show win UI
+        //Debug.Log(" [GameManager] YOU WIN!");
+
     }
 }

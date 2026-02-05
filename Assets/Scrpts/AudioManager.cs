@@ -81,17 +81,6 @@ public class AudioManager : MonoBehaviour
         ApplyVolumes();
     }
 
-    public void ToggleMusicMute()
-    {
-        isMusicMuted = !isMusicMuted;
-        PlayerPrefs.SetInt(MUSIC_MUTED_KEY, isMusicMuted ? 1 : 0);
-        PlayerPrefs.Save();
-
-        if (isMusicMuted)
-            StopMusic();
-        else
-            PlayMusic();
-    }
 
     // -------------------- Internals --------------------
 
