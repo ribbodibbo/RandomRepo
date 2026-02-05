@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI MatchCount;
     [SerializeField] TextMeshProUGUI FlipCount;
+
+    [Header("Events")]
+    [SerializeField] UnityEvent OnGameWon;
+
 
     private int matchCount;
     private int flipCount;
@@ -124,6 +129,7 @@ public class GameManager : MonoBehaviour
         if (card.IsFaceUp) return;
 
         card.Reveal();
+        AudioManager.Instance.PlayCardTap();
 
         if (firstCard == null)
         {
@@ -161,6 +167,8 @@ public class GameManager : MonoBehaviour
 
     private void HandleMatch()
     {
+        AudioManager.Instance.PlayMatch();
+
         firstCard.SetMatched();
         secondCard.SetMatched();
 
@@ -172,24 +180,24 @@ public class GameManager : MonoBehaviour
 
         if (matchedPairs >= totalPairs)
         {
-            OnGameWon();
+           Invoke("GameWon", 2);
         }
     }
 
     private void HandleMismatch()
     {
+        AudioManager.Instance.PlayMisMatch();
+
         firstCard.Hide();
         secondCard.Hide();
 
         Debug.Log("[GameManager] Mismatch.");
     }
 
-    private void OnGameWon()
+    private void GameWon()
     {
-        Debug.Log("🎉 [GameManager] YOU WIN!");
-        // later:
-        // score update
-        // save progress
-        // show win UI
+        AudioManager.Instance.PlayWin();
+        OnGameWon.Invoke();
+
     }
 }

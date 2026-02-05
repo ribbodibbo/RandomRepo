@@ -47,7 +47,7 @@ public class GridManager : MonoBehaviour
 
     public void Initialize(DifficultyMode selectedMode)
     {
-       // GetComponent<GridLayoutGroup>().enabled = true;
+        grid.enabled = true;
 
         CurrentMode = selectedMode;
       
@@ -73,7 +73,8 @@ public class GridManager : MonoBehaviour
 
         GameManager.Instance.InitializeGame(CurrentCardCount);
 
-        //GetComponent<GridLayoutGroup>().enabled = false;
+        grid.enabled = false;
+
 
         Debug.Log($"[GridManager] Initialize: Mode={CurrentMode}, Cards={CurrentCardCount}");
     }
