@@ -68,6 +68,10 @@ public class GridManager : MonoBehaviour
 
         SpawnCards(CurrentCardCount);
 
+        GameManager.Instance.InitializeGame(CurrentCardCount);
+
+        GetComponent<GridLayoutGroup>().enabled = false;
+
         Debug.Log($"[GridManager] Initialize: Mode={CurrentMode}, Cards={CurrentCardCount}");
     }
 
@@ -110,7 +114,10 @@ public class GridManager : MonoBehaviour
         grid.spacing = new Vector2(35, 20);
         grid.padding = new RectOffset(40, 40, 40, 50);
 
+        
         Debug.Log("[GridManager] Preset: Easy (3x2)");
+
+
     }
 
     private void ApplyPresetNormal()
