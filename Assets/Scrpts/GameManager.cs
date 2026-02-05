@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,6 +14,13 @@ public class GameManager : MonoBehaviour
     [Header("Game State")]
     [SerializeField] private int totalPairs;
     [SerializeField] private float mismatchDelay = 0.7f;
+
+    [Header("UI")]
+    [SerializeField] TextMeshProUGUI MatchCount;
+    [SerializeField] TextMeshProUGUI FlipCount;
+
+    private int matchCount;
+    private int flipCount;
 
     private Card firstCard;
     private Card secondCard;
@@ -41,6 +49,9 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
         isChecking = false;
+
+        MatchCount.text = "0";
+        FlipCount.text = "0";
 
         StartCoroutine(PreviewCards());
 
@@ -107,6 +118,9 @@ public class GameManager : MonoBehaviour
             HandleMismatch();
         }
 
+        flipCount++;
+        FlipCount.text = flipCount.ToString();
+
         firstCard = null;
         secondCard = null;
         isChecking = false;
@@ -116,6 +130,9 @@ public class GameManager : MonoBehaviour
     {
         firstCard.SetMatched();
         secondCard.SetMatched();
+
+        matchCount++;
+        MatchCount.text = matchCount.ToString();    
 
         matchedPairs++;
         Debug.Log($"[GameManager] Match found. ({matchedPairs}/{totalPairs})");

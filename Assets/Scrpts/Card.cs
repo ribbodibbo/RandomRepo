@@ -30,6 +30,8 @@ public class Card : MonoBehaviour, IPointerClickHandler
 
         frontFace.SetActive(false);
         backFace.SetActive(true);
+
+        transform.localScale = Vector3.one; 
     }
 
     // -------------------- Flip Logic --------------------

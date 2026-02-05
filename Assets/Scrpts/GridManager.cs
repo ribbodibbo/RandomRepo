@@ -48,6 +48,7 @@ public class GridManager : MonoBehaviour
     public void Initialize(DifficultyMode selectedMode)
     {
         CurrentMode = selectedMode;
+        GetComponent<GridLayoutGroup>().enabled = true;
 
         switch (selectedMode)
         {
