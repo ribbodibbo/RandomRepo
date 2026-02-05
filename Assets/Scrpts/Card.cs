@@ -25,8 +25,11 @@ public class Card : MonoBehaviour, IPointerClickHandler
     {
         PairIndex = pairIndex;
         mainSprite.sprite = sprite;
+        mainSprite.preserveAspect = true;
+
         IsFaceUp = false;
         IsMatched = false;
+
 
         frontFace.SetActive(false);
         backFace.SetActive(true);
