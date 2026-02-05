@@ -37,6 +37,27 @@ public class Card : MonoBehaviour, IPointerClickHandler
         transform.localScale = Vector3.one; 
     }
 
+    public void ResetCard()
+    {
+        IsMatched = false;
+        IsFaceUp = false;
+        isAnimating = false;
+
+        transform.DOKill();
+        transform.localScale = Vector3.one;
+
+        frontFace.SetActive(false);
+        backFace.SetActive(true);
+
+        // Re-enable raycasts if disabled
+        CanvasGroup cg = GetComponent<CanvasGroup>();
+        if (cg != null)
+        {
+            cg.blocksRaycasts = true;
+            cg.interactable = true;
+        }
+    }
+
     // -------------------- Flip Logic --------------------
 
     public void Reveal()

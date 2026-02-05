@@ -43,20 +43,55 @@ public class GameManager : MonoBehaviour
 
     public void InitializeGame(int cardCount)
     {
+        StopAllCoroutines(); // safety
+
         totalPairs = cardCount / 2;
         matchedPairs = 0;
+        matchCount = 0;
+        flipCount = 0;
 
         firstCard = null;
         secondCard = null;
-        isChecking = false;
 
-        MatchCount.text = "0";
-        FlipCount.text = "0";
+        isChecking = false;
+        inputLocked = true; // locked during preview
+
+        // Reset UI
+        if (MatchCount) MatchCount.text = "0";
+        if (FlipCount) FlipCount.text = "0";
 
         StartCoroutine(PreviewCards());
 
         Debug.Log($"[GameManager] Game Initialized. Total Pairs: {totalPairs}");
     }
+
+    public void ResetGame()
+    {
+        StopAllCoroutines();
+
+        firstCard = null;
+        secondCard = null;
+
+        matchCount = 0;
+        flipCount = 0;
+        matchedPairs = 0;
+
+        isChecking = false;
+        inputLocked = true; // locked until InitializeGame is called
+
+        // Reset UI
+        if (MatchCount) MatchCount.text = "0";
+        if (FlipCount) FlipCount.text = "0";
+
+        // Reset all cards visually
+        Card[] cards = FindObjectsOfType<Card>();
+        foreach (var card in cards)
+        {
+            card.ResetCard();
+        }
+
+    }
+
 
     private IEnumerator PreviewCards()
     {
@@ -79,8 +114,6 @@ public class GameManager : MonoBehaviour
         }
 
         inputLocked = false;
-
-        Debug.Log("[GameManager] Preview finished. Player can play.");
     }
 
     public void OnCardSelected(Card card)
