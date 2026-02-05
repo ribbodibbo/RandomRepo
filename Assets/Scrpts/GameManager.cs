@@ -177,7 +177,7 @@ public class GameManager : MonoBehaviour
 
         if (matchedPairs >= totalPairs)
         {
-            OnGameWon();
+            Invoke("OnGameWon", 2);
         }
     }
 
