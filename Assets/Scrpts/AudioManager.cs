@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource match;
     [SerializeField] private AudioSource misMatch;
     [SerializeField] private AudioSource win;
+    [SerializeField] private AudioSource gear;
 
     [Header("Settings")]
     [Range(0f, 1f)][SerializeField] private float musicVolume = 0.6f;
@@ -50,6 +51,7 @@ public class AudioManager : MonoBehaviour
     public void PlayMatch() => PlaySfx(match);
     public void PlayMisMatch() => PlaySfx(misMatch);
     public void PlayWin() => PlaySfx(win);
+    public void PlayGear() => PlaySfx(gear);
 
     public void PlayMusic()
     {

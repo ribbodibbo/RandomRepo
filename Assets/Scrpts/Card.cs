@@ -89,14 +89,14 @@ public class Card : MonoBehaviour, IPointerClickHandler
 
         GetComponent<PopAndShrinkEffect>().Play(transform);
 
-        Debug.Log($"[Card] Matched -> PopAndShrink: {name}");
+       // Debug.Log($"[Card] Matched -> PopAndShrink: {name}");
     }
     private void Flip(bool showFront)
     {
         if (isAnimating) return;
         isAnimating = true;
 
-        Debug.Log($"[Card] Flip start -> showFront={showFront}");
+       // Debug.Log($"[Card] Flip start -> showFront={showFront}");
 
         transform.DOKill();
 
@@ -109,7 +109,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
             frontFace.SetActive(showFront);
             backFace.SetActive(!showFront);
 
-            Debug.Log($"[Card] Mid flip -> Front={frontFace.activeSelf}, Back={backFace.activeSelf}");
+           // Debug.Log($"[Card] Mid flip -> Front={frontFace.activeSelf}, Back={backFace.activeSelf}");
         });
 
         seq.Append(transform.DORotate(Vector3.zero, flipDuration / 2f).SetEase(Ease.OutQuad));
@@ -119,7 +119,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
             IsFaceUp = showFront;
             isAnimating = false;
 
-            Debug.Log($"[Card] Flip done -> IsFaceUp={IsFaceUp}");
+            //Debug.Log($"[Card] Flip done -> IsFaceUp={IsFaceUp}");
         });
     }
 

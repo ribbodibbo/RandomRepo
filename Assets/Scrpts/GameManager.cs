@@ -20,9 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI MatchCount;
     [SerializeField] TextMeshProUGUI FlipCount;
 
-    [Header("Events")]
-    [SerializeField] UnityEvent OnGameWon;
-
+    public UnityEvent GamWon;
 
     private int matchCount;
     private int flipCount;
@@ -67,7 +65,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(PreviewCards());
 
-        Debug.Log($"[GameManager] Game Initialized. Total Pairs: {totalPairs}");
+       // Debug.Log($"[GameManager] Game Initialized. Total Pairs: {totalPairs}");
     }
 
     public void ResetGame()
@@ -96,7 +94,6 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
 
     private IEnumerator PreviewCards()
     {
@@ -176,11 +173,11 @@ public class GameManager : MonoBehaviour
         MatchCount.text = matchCount.ToString();    
 
         matchedPairs++;
-        Debug.Log($"[GameManager] Match found. ({matchedPairs}/{totalPairs})");
+       // Debug.Log($"[GameManager] Match found. ({matchedPairs}/{totalPairs})");
 
         if (matchedPairs >= totalPairs)
         {
-           Invoke("GameWon", 2);
+            OnGameWon();
         }
     }
 
@@ -191,13 +188,17 @@ public class GameManager : MonoBehaviour
         firstCard.Hide();
         secondCard.Hide();
 
-        Debug.Log("[GameManager] Mismatch.");
+        //Debug.Log("[GameManager] Mismatch.");
     }
 
-    private void GameWon()
+    private void OnGameWon()
     {
         AudioManager.Instance.PlayWin();
-        OnGameWon.Invoke();
-
+        GamWon.Invoke();
+        //Debug.Log("🎉 [GameManager] YOU WIN!");
+        // later:
+        // score update
+        // save progress
+        // show win UI
     }
 }

@@ -30,6 +30,7 @@ public class GearEffect : MonoBehaviour
             Close();
         else
             Open();
+       AudioManager.Instance.PlayGear();
     }
 
     private void Open()

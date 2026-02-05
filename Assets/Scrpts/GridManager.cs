@@ -29,7 +29,7 @@ public class GridManager : MonoBehaviour
     {
         grid = GetComponent<GridLayoutGroup>();
         container = GetComponent<RectTransform>();
-        Debug.Log("[GridManager] Reset: Auto-assigned grid + container.");
+       // Debug.Log("[GridManager] Reset: Auto-assigned grid + container.");
     }
 
     private void Awake()
@@ -76,7 +76,7 @@ public class GridManager : MonoBehaviour
         grid.enabled = false;
 
 
-        Debug.Log($"[GridManager] Initialize: Mode={CurrentMode}, Cards={CurrentCardCount}");
+       // Debug.Log($"[GridManager] Initialize: Mode={CurrentMode}, Cards={CurrentCardCount}");
     }
 
     private void SpawnCards(int count)
@@ -119,9 +119,7 @@ public class GridManager : MonoBehaviour
         grid.padding = new RectOffset(40, 40, 40, 50);
 
         
-        Debug.Log("[GridManager] Preset: Easy (3x2)");
-
-
+       // Debug.Log("[GridManager] Preset: Easy (3x2)");
     }
 
     private void ApplyPresetNormal()
@@ -137,7 +135,7 @@ public class GridManager : MonoBehaviour
         grid.spacing = new Vector2(20, 10);
         grid.padding = new RectOffset(40, 40, 40, 40);
 
-        Debug.Log("[GridManager] Preset: Normal (4x3)");
+        //Debug.Log("[GridManager] Preset: Normal (4x3)");
     }
 
     private void ApplyPresetHard()
@@ -153,7 +151,7 @@ public class GridManager : MonoBehaviour
         grid.spacing = new Vector2(50, 30);
         grid.padding = new RectOffset(50, 40, 50, 50);
 
-        Debug.Log("[GridManager] Preset: Hard (4x4)");
+       // Debug.Log("[GridManager] Preset: Hard (4x4)");
     }
 
     // -------------------- Clearing --------------------
@@ -165,7 +163,7 @@ public class GridManager : MonoBehaviour
         for (int i = container.childCount - 1; i >= 0; i--)
             Destroy(container.GetChild(i).gameObject);
 
-        Debug.Log("[GridManager] ClearCardsRuntime: Cleared children.");
+       // Debug.Log("[GridManager] ClearCardsRuntime: Cleared children.");
     }
 
     private void ClearCardsEditor()
@@ -178,7 +176,7 @@ public class GridManager : MonoBehaviour
             for (int i = container.childCount - 1; i >= 0; i--)
                 DestroyImmediate(container.GetChild(i).gameObject);
 
-            Debug.Log("[GridManager] ClearCardsEditor: Cleared children (Editor).");
+           // Debug.Log("[GridManager] ClearCardsEditor: Cleared children (Editor).");
             return;
         }
 #endif

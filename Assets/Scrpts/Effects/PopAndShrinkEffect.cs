@@ -20,7 +20,7 @@ public class PopAndShrinkEffect : MonoBehaviour
     {
         if (target == null)
         {
-            Debug.LogWarning("[PopAndShrinkEffect] Play called with null target.");
+            //Debug.LogWarning("[PopAndShrinkEffect] Play called with null target.");
             return;
         }
 

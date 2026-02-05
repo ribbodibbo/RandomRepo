@@ -41,18 +41,23 @@ public class LevelSelector : MonoBehaviour
     {
         ApplyDifficulty(DifficultyMode.Easy);
         SaveDifficulty(DifficultyMode.Easy);
+        AudioManager.Instance.PlayCardTap();
     }
 
     public void MediumLevel()
     {
         ApplyDifficulty(DifficultyMode.Normal);
         SaveDifficulty(DifficultyMode.Normal);
+        AudioManager.Instance.PlayCardTap();
+
     }
 
     public void HardLevel()
     {
         ApplyDifficulty(DifficultyMode.Hard);
         SaveDifficulty(DifficultyMode.Hard);
+        AudioManager.Instance.PlayCardTap();
+
     }
 
     private void ApplyDifficulty(DifficultyMode mode)

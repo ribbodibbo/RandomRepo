@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class WinPopEffect : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private CanvasGroup canvasGroup; // optional but recommended
+    [SerializeField] private CanvasGroup canvasGroup; 
 
     [Header("Pop Settings")]
     [SerializeField] private float startScale = 0f;
@@ -17,7 +17,6 @@ public class WinPopEffect : MonoBehaviour
 
     private void Awake()
     {
-        // Prepare hidden state
         transform.localScale = Vector3.one * startScale;
 
         if (canvasGroup != null)
@@ -37,24 +36,20 @@ public class WinPopEffect : MonoBehaviour
         transform.DOKill();
         canvasGroup?.DOKill();
 
-        // Fade in
         if (canvasGroup != null)
         {
             canvasGroup.alpha = 0f;
             canvasGroup.DOFade(1f, popDuration * 0.8f);
         }
 
-        // Pop animation
+
         Sequence seq = DOTween.Sequence();
 
         seq.Append(transform.DOScale(popScale, popDuration).SetEase(Ease.InSine));
         seq.Append(transform.DOScale(finalScale, settleDuration).SetEase(Ease.OutSine));
 
-        // Optional: play win sound
         AudioManager.Instance?.PlayWin();
     }
-
-    // Optional hide (for replay)
     public void Hide()
     {
         transform.DOKill();
